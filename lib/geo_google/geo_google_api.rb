@@ -6,11 +6,10 @@ module GeoGoogle
 
   class GeoGoogleApi
 
-    MAP_URL = 'http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address='
+    MAP_URL = 'http://maps.googleapis.com/maps/api/geocode/json?sensor=false&'
 
     def lookup(element_name)
-      result = open(MAP_URL.concat(element_name.gsub(/ /, '+')))
-      puts result
+      result = open(MAP_URL.concat('address=').concat(element_name.gsub(/ /, '+')))
       ApiResponse.new(result)
     end
 
